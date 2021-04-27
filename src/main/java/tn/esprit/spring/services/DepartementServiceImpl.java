@@ -37,7 +37,7 @@ public class DepartementServiceImpl implements IDepartementService {
 	public Departement ajoutDep(Departement d) {
 		l.info("Ajout Departement : " + d);
 		Departement depr = departementRepository.save(d);
-		dep.ajoutDep(depr);
+		//dep.ajoutDep(depr);
 		l.info(d + "déprtement Ajouté");
 		return depr;
 	}
@@ -60,6 +60,11 @@ public class DepartementServiceImpl implements IDepartementService {
 		Departement d =  departementRepository.findById(id).get();
 		l.info("Departement  : " + d.toString());
 		return d; 
+	}
+	@Override
+	public void deleteDepartementById(int depId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

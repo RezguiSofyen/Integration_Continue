@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 public class Entreprise implements Serializable{
 	
@@ -44,6 +46,13 @@ public class Entreprise implements Serializable{
 		this.raisonSocial = raisonSocial;
 	}
 
+	public Entreprise(int identreprise,String name, String raisonSocial) {
+		this.id=identreprise;
+		this.name = name;
+		this.raisonSocial = raisonSocial;
+	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -63,6 +72,8 @@ public class Entreprise implements Serializable{
 	public String getRaisonSocial() {
 		return raisonSocial;
 	}
+
+
 
 	public void setRaisonSocial(String raisonSocial) {
 		this.raisonSocial = raisonSocial;
