@@ -9,9 +9,9 @@ public interface IDepartementService {
 	
 	
 	public List<Departement> getAllDepartements();
-	public Departement addOrUpdateCont(Departement d);
-	public void deleteDepartementById(int depId);
-
+	public Departement ajoutDep(Departement d);
+	public void suppriDepartementById(int depId);
+	public Departement chercherDepartement(int id) ;
 
 	
 	

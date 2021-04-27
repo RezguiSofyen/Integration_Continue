@@ -12,14 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 @Entity
 public class Entreprise implements Serializable{
-	
-	
-	private static final Logger l = LogManager.getLogger(Departement.class);
 	
 	/**
 	 * 
@@ -43,13 +37,11 @@ public class Entreprise implements Serializable{
 
 	public Entreprise() {
 		super();
-		l.info("Appel au constructeur non paramtérer  : ");
 	}
 
 	public Entreprise(String name, String raisonSocial) {
 		this.name = name;
 		this.raisonSocial = raisonSocial;
-		l.info("Constructeur Entreprise pour nom : "+name+" ** RaisonSocial : "+raisonSocial);
 	}
 
 	public int getId() {

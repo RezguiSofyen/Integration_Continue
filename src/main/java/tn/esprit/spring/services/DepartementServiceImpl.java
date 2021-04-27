@@ -2,6 +2,7 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
+import javax.sound.midi.Soundbank;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,12 +12,16 @@ import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.repository.DepartementRepository;
 
 
+
 @Service
 public class DepartementServiceImpl implements IDepartementService {
 	private static final Logger l = LogManager.getLogger(DepartementServiceImpl.class);
 
 	@Autowired
 	DepartementRepository departementRepository;
+	
+	@Autowired 
+	IDepartementService dep;
 
 	public List<Departement> getAllDepartement() {
 		l.info("In  retrieveAllContrats : ");
@@ -29,23 +34,32 @@ public class DepartementServiceImpl implements IDepartementService {
 	}
 	@Override
 
-	public Departement addOrUpdateCont(Departement d) {
-		l.info("in add cont : " + d);
-		Departement cont = departementRepository.save(d);
-		l.info(d + "département modifié");
-		return cont;
+	public Departement ajoutDep(Departement d) {
+		l.info("Ajout Departement : " + d);
+		Departement depr = departementRepository.save(d);
+		dep.ajoutDep(depr);
+		l.info(d + "déprtement Ajouté");
+		return depr;
 	}
 
 	@Override
-	public void deleteDepartementById(int depId) {
-		l.info("delted contrat id : " + depId);
+	public void suppriDepartementById(int depId) {
+		l.info("supprimé contrat id : " + depId);
 		departementRepository.delete(departementRepository.findById(depId).get());
 
 	}
 	@Override
 	public List<Departement> getAllDepartements() {
-		// TODO Auto-generated method stub
-		return null;
+		l.info("trouver tous les département");
+		return (List<Departement>) departementRepository.findAll();
+	}
+
+	@Override
+	public Departement chercherDepartement(int id) {
+		l.info("Chercher département par id = " + id);
+		Departement d =  departementRepository.findById(id).get();
+		l.info("Departement  : " + d.toString());
+		return d; 
 	}
 
 }
