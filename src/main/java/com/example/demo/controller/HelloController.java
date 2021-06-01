@@ -8,11 +8,11 @@ public class HelloController {
 
 	@RequestMapping("/")
 	public String index() {
-		return "Greetings from Spring Boot!";
+		return "Greetings from Spring Boot";
 	}
 	@RequestMapping("/api")
 	public String apiLike() {
-		return "Greetings from Api collector";
+		return "Greetings from Api collector***********";
 	}
 
 }
